@@ -11,6 +11,7 @@ using Hangfire;
 
 using WoWToken.Server.Api.Extensions;
 using WoWToken.Server.Data.Models;
+using WoWToken.Server.Api.Authorization;
 
 namespace WoWToken.Server.Api
 {
@@ -52,7 +53,9 @@ namespace WoWToken.Server.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHangfireDashboard();
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions() {
+                Authorization = new[] { new HangfireAuthorizationFilter() }
+            });
 
             RecurringJob.AddOrUpdate<Data.ITokenService>(
                 SYNC_WOW_TOKEN_DATA,
