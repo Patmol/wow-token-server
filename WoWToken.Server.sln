@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWToken.Server.Api", "WoWToken.Server.Api\WoWToken.Server.Api.csproj", "{5794B142-5A9F-4D95-89D6-8CB6C8567A97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWToken.Server.Data", "WoWToken.Server.Data\WoWToken.Server.Data.csproj", "{F7DB963B-A02B-46FB-8EE0-79116B6FF905}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5794B142-5A9F-4D95-89D6-8CB6C8567A97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5794B142-5A9F-4D95-89D6-8CB6C8567A97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5794B142-5A9F-4D95-89D6-8CB6C8567A97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5794B142-5A9F-4D95-89D6-8CB6C8567A97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7DB963B-A02B-46FB-8EE0-79116B6FF905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7DB963B-A02B-46FB-8EE0-79116B6FF905}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7DB963B-A02B-46FB-8EE0-79116B6FF905}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7DB963B-A02B-46FB-8EE0-79116B6FF905}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
