@@ -2,7 +2,7 @@
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WoWToken.Server.Data;
+using WoWToken.Server.Data.Core;
 using WoWToken.Server.Data.Services;
 
 namespace WoWToken.Server.Api.Extensions
@@ -19,7 +19,7 @@ namespace WoWToken.Server.Api.Extensions
         /// <param name="configuration">The configuration.</param>
         public static void AddScopeds(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ITokenSyncService, TokenSyncService>();
         }
     }
 }

@@ -53,11 +53,9 @@ namespace WoWToken.Server.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHangfireDashboard("/hangfire", new DashboardOptions() {
-                Authorization = new[] { new HangfireAuthorizationFilter() }
-            });
+            app.UseHangfireDashboard();
 
-            RecurringJob.AddOrUpdate<Data.ITokenService>(
+            RecurringJob.AddOrUpdate<Data.Core.ITokenSyncService>(
                 SYNC_WOW_TOKEN_DATA,
                 service => service.SyncTokenInformationAsync(),
                 env.IsDevelopment() ? "0 0 * * *" : "* * * * *");
