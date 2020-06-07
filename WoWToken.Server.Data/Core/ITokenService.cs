@@ -1,16 +1,17 @@
-using System.Threading.Tasks;
+﻿using System;
 
-namespace WoWToken.Server.Data
+namespace WoWToken.Server.Data.Core
 {
     /// <summary>
-    /// Contains methods to synchronize the token information from Battle.net
+    /// Contains methods to get the token information from the database.
     /// </summary>
     public interface ITokenService
     {
         /// <summary>
-        /// Synchronize the token prices for all regions.
+        /// Gets the latest token information for a specific region.
         /// </summary>
-        /// <returns></returns>
-        Task SyncTokenInformationAsync();
+        /// <param name="region">The region of the token.</param>
+        /// <returns>The token information.</returns>
+        Models.Database.WoWToken GetLastTokenInformation(string region);
     }
 }
