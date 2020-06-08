@@ -1,45 +1,40 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using WoWToken.Server.Data.Enumerations;
+﻿using System.Text.Json.Serialization;
 
-namespace WoWToken.Server.Data.Models.Database
+namespace WoWToken.Server.Api.ViewModels
 {
     /// <summary>
-    /// The [dbo].[Token] table
+    /// The token view model.
     /// </summary>
-    [Table("WoWToken", Schema = "dbo")]
-    public class WoWToken
+    public class Token
     {
         /// <summary>
         /// Gets or sets the unique identifier key.
         /// </summary>
-        [Key]
-        [Column("Id")]
+        [JsonPropertyName("id")]
         public long Id { get; set; }
 
         /// <summary>
         /// Gets or sets the WoW region for the token.
         /// </summary>
-        [Column("Region")]
+        [JsonPropertyName("region")]
         public string Region { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated timestamp.
         /// </summary>
-        [Column("LastUpdatedTimestamp")]
+        [JsonPropertyName("lastUpdatedTimestamp")]
         public long LastUpdatedTimestamp { get; set; }
 
         /// <summary>
         /// Gets or sets the price of the token in copper.
         /// </summary>
-        [Column("Price")]
+        [JsonPropertyName("price")]
         public long Price { get; set; }
 
         /// <summary>
         /// Gets or sets the price difference between two tokens.
         /// </summary>
-        [NotMapped]
+        [JsonPropertyName("priceDifference")]
         public long PriceDifference { get; set; }
     }
 }

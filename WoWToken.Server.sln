@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWToken.Server.Api", "WoWT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWToken.Server.Data", "WoWToken.Server.Data\WoWToken.Server.Data.csproj", "{F7DB963B-A02B-46FB-8EE0-79116B6FF905}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoWToken.Server.Tests", "WoWToken.Server.Tests\WoWToken.Server.Tests.csproj", "{2C99898B-B8E7-4C07-97A4-38B85C380273}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{F7DB963B-A02B-46FB-8EE0-79116B6FF905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7DB963B-A02B-46FB-8EE0-79116B6FF905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7DB963B-A02B-46FB-8EE0-79116B6FF905}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C99898B-B8E7-4C07-97A4-38B85C380273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C99898B-B8E7-4C07-97A4-38B85C380273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C99898B-B8E7-4C07-97A4-38B85C380273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C99898B-B8E7-4C07-97A4-38B85C380273}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

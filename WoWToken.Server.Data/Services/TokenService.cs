@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using WoWToken.Server.Data.Core;
 using WoWToken.Server.Data.Models;
 
@@ -26,11 +27,31 @@ namespace WoWToken.Server.Data.Services
         /// </summary>
         /// <param name="region">The region of the token.</param>
         /// <returns>The token information.</returns>
-        public Models.Database.WoWToken GetLastTokenInformation(string region)
+        public async Task<Models.Database.WoWToken> GetLatestTokenInformationAsync(string region)
         {
-            return this.wowTokenContext.Tokens
+            var latestToken = await this.wowTokenContext.Tokens
                 .OrderByDescending(i => i.LastUpdatedTimestamp)
-                .First(i => i.Region == region);
+                .FirstOrDefaultAsync(i => i.Region == region);
+
+            if (latestToken == null)
+            {
+                return null;
+            }
+
+            var beforeLastToken = await this.wowTokenContext.Tokens
+                .OrderByDescending(i => i.LastUpdatedTimestamp)
+                .FirstOrDefaultAsync(i => i.Region == region && i.LastUpdatedTimestamp != latestToken.LastUpdatedTimestamp);
+
+            if (beforeLastToken != null)
+            {
+                latestToken.PriceDifference = latestToken.Price - beforeLastToken.Price;
+            }
+            else
+            {
+                latestToken.PriceDifference = 0;
+            }
+
+            return latestToken;
         }
     }
 }

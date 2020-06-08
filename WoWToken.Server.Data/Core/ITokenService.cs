@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace WoWToken.Server.Data.Core
 {
@@ -12,6 +13,6 @@ namespace WoWToken.Server.Data.Core
         /// </summary>
         /// <param name="region">The region of the token.</param>
         /// <returns>The token information.</returns>
-        Models.Database.WoWToken GetLastTokenInformation(string region);
+        Task<Models.Database.WoWToken> GetLatestTokenInformationAsync(string region);
     }
 }
