@@ -2,6 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DocumentationFile>bin\Debug\netcoreapp3.1\WoWToken.Server.Api.xml</DocumentationFile>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Hangfire.Core" Version="1.7.11" />
     <PackageReference Include="Hangfire.SqlServer" Version="1.7.11" />
@@ -12,6 +15,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WoWToken.Server.Data\WoWToken.Server.Data.csproj">
@@ -21,5 +26,7 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Authorization\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Mapping\" />
   </ItemGroup>
 </Project>
