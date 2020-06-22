@@ -8,6 +8,7 @@ using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using WoWToken.Server.Api.Hubs;
 
 namespace WoWToken.Server.Api.Extensions
 {
@@ -19,7 +20,9 @@ namespace WoWToken.Server.Api.Extensions
         /// <summary>
         /// The name of the Hangfire job for the synchronisation of the WoW Token data.
         /// </summary>
-        private const string SYNC_WOW_TOKEN_DATA = "Synchonize WoW token information";
+        private const string SYNC_WOW_TOKEN_DATA = "Synchonize WoW token information with the Battle.net API";
+
+        private const string HUB_WOW_TOKEN_DATA = "Synchonize WoW token information with the client";
 
         /// <summary>
         /// Add the Hangfire services to the application.
@@ -59,7 +62,12 @@ namespace WoWToken.Server.Api.Extensions
             RecurringJob.AddOrUpdate<Data.Core.ITokenSyncService>(
                 SYNC_WOW_TOKEN_DATA,
                 service => service.SyncTokenInformationAsync(),
-                env.IsDevelopment() ? "*/15 * * * *" : "* * * * *");
+                env.IsDevelopment() ? "* * * * *" : "* * * * *");
+
+            RecurringJob.AddOrUpdate<TokenHub>(
+                HUB_WOW_TOKEN_DATA,
+                hub => hub.SendTokens(),
+                env.IsDevelopment() ? "* * * * *" : "* * * * *");
         }
     }
 }
