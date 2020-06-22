@@ -15,7 +15,7 @@ namespace WoWToken.Server.Api.Controllers
     /// The token controller.
     /// </summary>
     [Produces("application/json")]
-    [Route("[controller]")]
+    [Route("token")]
     [ApiController]
     public class TokenController : Controller
     {
@@ -46,7 +46,7 @@ namespace WoWToken.Server.Api.Controllers
         /// <remarks>
         /// Sample request:
         ///
-        ///     GET /Token?region=eu
+        ///     GET /token?region=eu
         ///
         /// </remarks>
         /// <param name="region">The region for which we want the information.</param>

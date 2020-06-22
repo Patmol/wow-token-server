@@ -52,7 +52,7 @@ namespace WoWToken.Server.Api.Extensions
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = swaggerName, Version = swaggerVersion });
+                c.SwaggerDoc(swaggerVersion, new Microsoft.OpenApi.Models.OpenApiInfo { Title = swaggerName, Version = swaggerVersion });
 
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);

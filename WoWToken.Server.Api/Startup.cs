@@ -10,6 +10,7 @@ using Hangfire;
 using WoWToken.Server.Api.Extensions;
 using WoWToken.Server.Data.Models;
 using AutoMapper;
+using WoWToken.Server.Api.Hubs;
 
 namespace WoWToken.Server.Api
 {
@@ -50,6 +51,7 @@ namespace WoWToken.Server.Api
             services.AddSwaggerGen(this.Configuration);
             services.AddAutoMapper(typeof(Startup).Assembly);
             services.AddControllers();
+            services.AddSignalR();
         }
 
         /// <summary>
@@ -77,6 +79,7 @@ namespace WoWToken.Server.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/tokenhub");
             });
         }
     }

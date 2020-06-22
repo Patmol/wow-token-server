@@ -7,7 +7,7 @@ namespace WoWToken.Server.Api.Controllers
     /// <summary>
     /// The time controller
     /// </summary>
-    [Route("[controller]")]
+    [Route("time")]
     [ApiController]
     public class TimeController : Controller
     {

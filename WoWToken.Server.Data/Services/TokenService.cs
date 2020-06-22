@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using WoWToken.Server.Data.Core;
+using WoWToken.Server.Data.Enumerations;
 using WoWToken.Server.Data.Models;
 
 namespace WoWToken.Server.Data.Services
@@ -52,6 +54,22 @@ namespace WoWToken.Server.Data.Services
             }
 
             return latestToken;
+        }
+
+        /// <summary>
+        /// Gets all the latest token information for all regions.
+        /// </summary>
+        /// <returns>All the token information.</returns>
+        public async Task<IEnumerable<Models.Database.WoWToken>> GetAllLatestTokenInformationAsync()
+        {
+            return new List<Models.Database.WoWToken>()
+            {
+                await this.GetLatestTokenInformationAsync(WoWRegion.US),
+                await this.GetLatestTokenInformationAsync(WoWRegion.EU),
+                await this.GetLatestTokenInformationAsync(WoWRegion.KR),
+                await this.GetLatestTokenInformationAsync(WoWRegion.TW),
+                await this.GetLatestTokenInformationAsync(WoWRegion.CN),
+            };
         }
     }
 }

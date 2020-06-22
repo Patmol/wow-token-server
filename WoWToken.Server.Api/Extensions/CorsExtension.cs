@@ -19,7 +19,8 @@ namespace WoWToken.Server.Api.Extensions
                     builder =>
                     {
                         builder
-                            .AllowAnyOrigin()
+                            .WithOrigins("http://localhost:8080")
+                            .AllowCredentials()
                             .AllowAnyMethod()
                             .AllowAnyHeader();
                     });
