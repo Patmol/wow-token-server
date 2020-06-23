@@ -62,12 +62,12 @@ namespace WoWToken.Server.Api.Extensions
             RecurringJob.AddOrUpdate<Data.Core.ITokenSyncService>(
                 SYNC_WOW_TOKEN_DATA,
                 service => service.SyncTokenInformationAsync(),
-                env.IsDevelopment() ? "* * * * *" : "* * * * *");
+                env.IsDevelopment() ? "*/15 * * * *" : "* * * * *");
 
             RecurringJob.AddOrUpdate<TokenHub>(
                 HUB_WOW_TOKEN_DATA,
                 hub => hub.SendTokens(),
-                env.IsDevelopment() ? "* * * * *" : "* * * * *");
+                env.IsDevelopment() ? "*/15 * * * *" : "* * * * *");
         }
     }
 }
