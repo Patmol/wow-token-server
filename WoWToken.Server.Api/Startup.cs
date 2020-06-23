@@ -46,7 +46,7 @@ namespace WoWToken.Server.Api
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddHangfireService(this.Configuration);
             services.AddScopeds(this.Configuration);
-            services.AddCorsAllow();
+            services.AddCorsAllow(this.Configuration);
             services.AddOptions();
             services.AddSwaggerGen(this.Configuration);
             services.AddAutoMapper(typeof(Startup).Assembly);
